@@ -22,9 +22,10 @@ message GetLastMessagesGrpcRequest{
 
 
 message MessageGrpcModel {
-    MessageDirection Direction = 1;
-    int64 Timestamp = 2;
-    string Message = 3;
+    string EventId = 1;
+    MessageDirection Direction = 2;
+    int64 Timestamp = 3;
+    string Message = 4;
 }
 
 
