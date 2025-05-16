@@ -1,0 +1,35 @@
+syntax = "proto3";
+package ctx_manager;
+import "google/protobuf/empty.proto";
+
+
+enum MessageDirection{
+    FromClient = 0;
+    FromServer = 1;
+}
+
+message WriteMessageGrpcModel{
+    string CtxId = 1;
+    MessageDirection Direction = 2;
+    int64 Timestamp = 3;
+    string Message = 4;
+}
+
+message GetLastMessagesGrpcRequest{
+    string CtxId = 1;
+    int32 Amount = 2;
+}
+
+
+message MessageGrpcModel {
+    MessageDirection Direction = 1;
+    int64 Timestamp = 2;
+    string Message = 3;
+}
+
+
+service CtxManager {
+    rpc SaveMessages(stream WriteMessageGrpcModel) returns (google.protobuf.Empty);
+    rpc GetLastMessages(GetLastMessagesGrpcRequest) returns (stream MessageGrpcModel);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
