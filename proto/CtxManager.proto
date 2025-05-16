@@ -33,7 +33,39 @@ message MessageGrpcModel {
 }
 
 
+message SaveChatSessionGrpcModel{
+    int64 Timestamp = 1;
+    string Id = 2;
+    string Ip = 3;
+    string CountryCode = 4;
+    string Host = 5;
+    string Origin = 6;
+    string UserAgent = 7;
+    string Languages = 8;
+}
+
+message GetLastSessionsGrpcRequest{
+    int32 Take = 1;
+}
+
+message ChatSessionGrpcModel{
+    string Id =1;
+    string Ip =2;
+    string CountryCode = 4;
+    string Host = 5;
+    string Origin = 6;
+    string UserAgent = 7;
+    string Languages = 8;
+    int64 Created = 9;
+    int64 Update = 10;
+}
+
+
 service CtxManager {
+
+    rpc SaveChatSessions(stream SaveChatSessionGrpcModel) returns (google.protobuf.Empty);
+    rpc GetLastSessions(GetLastSessionsGrpcRequest) returns (stream ChatSessionGrpcModel);
+
     rpc SaveMessages(stream WriteMessageGrpcModel) returns (google.protobuf.Empty);
     rpc GetLastMessages(GetLastMessagesGrpcRequest) returns (stream MessageGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
