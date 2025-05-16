@@ -10,9 +10,11 @@ enum MessageDirection{
 
 message WriteMessageGrpcModel{
     string CtxId = 1;
-    MessageDirection Direction = 2;
-    int64 Timestamp = 3;
-    string Message = 4;
+    string RequestId = 2;
+    MessageDirection Direction = 3;
+    int64 Timestamp = 4;
+    optional string Message = 5;
+    optional string FileId = 6;
 }
 
 message GetLastMessagesGrpcRequest{
@@ -23,9 +25,11 @@ message GetLastMessagesGrpcRequest{
 
 message MessageGrpcModel {
     string EventId = 1;
-    MessageDirection Direction = 2;
-    int64 Timestamp = 3;
-    string Message = 4;
+    string RequestId = 2;
+    MessageDirection Direction = 3;
+    int64 Timestamp = 4;
+    optional string Message = 5;
+    optional string FileId = 6;
 }
 
 
