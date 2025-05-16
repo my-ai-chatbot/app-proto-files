@@ -1,5 +1,5 @@
 syntax = "proto3";
-package ctx_manager;
+package files_storage;
 import "google/protobuf/empty.proto";
 
 
