@@ -1,0 +1,21 @@
+syntax = "proto3";
+package ctx_manager;
+import "google/protobuf/empty.proto";
+
+
+message FileGrpcModel{
+    string Id = 1;
+    bytes Content = 2;
+  
+}
+
+message GetFilesRequestModel{
+     string Id = 1;
+}
+
+
+service FilesStorage {
+    rpc Save(stream FileGrpcModel) returns (google.protobuf.Empty);
+    rpc GetFiles(stream GetFilesRequestModel) returns (stream FileGrpcModel);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
