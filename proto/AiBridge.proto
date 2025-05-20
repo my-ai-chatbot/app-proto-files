@@ -7,7 +7,7 @@ message TextToTextGrpcRequest{
     repeated string Context = 2;
 }
 
-message TestToTextGrpcResponse{
+message TextToTextGrpcResponse{
     string TextToken = 1;
 }
 
@@ -30,7 +30,7 @@ message SoundToTextGrpcResponse{
 }
 
 service AiBridge {
-    rpc TextToText(stream TextToTextGrpcRequest) returns (stream TestToTextGrpcResponse);
+    rpc TextToText(stream TextToTextGrpcRequest) returns (stream TextToTextGrpcResponse);
     rpc TextToSound(stream TextToSoundGrpcRequest) returns (stream TextToSoundGrpcResponse);
     rpc SoundToText(stream SoundToTextGrpcRequest) returns (stream SoundToTextGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
