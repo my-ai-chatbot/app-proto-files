@@ -21,18 +21,19 @@ message TextToSoundGrpcResponse{
     optional string TextChunk = 2;
 }
 
-message SoundToTextGrpcRequest{
+message SoundToSoundAndTextGrpcRequest{
     bytes DataChunk = 1;
     repeated string Context = 2;
 }
 
-message SoundToTextGrpcResponse{
-    string Text = 1;
+message SoundToSoundAndTextGrpcResponse{
+    optional bytes DataChunk = 1;
+    optional string TextChunk = 2;
 }
 
 service AiBridge {
     rpc TextToText(stream TextToTextGrpcRequest) returns (stream TextToTextGrpcResponse);
     rpc TextToSound(stream TextToSoundGrpcRequest) returns (stream TextToSoundGrpcResponse);
-    rpc SoundToText(stream SoundToTextGrpcRequest) returns (stream SoundToTextGrpcResponse);
+    rpc SoundToSoundAndText(stream SoundToSoundAndTextGrpcRequest) returns (stream SoundToSoundAndTextGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
