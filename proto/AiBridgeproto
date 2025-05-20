@@ -1,0 +1,37 @@
+syntax = "proto3";
+package ai_load_balancer;
+import "google/protobuf/empty.proto";
+
+message TextToTextRequest{
+    string Text = 1;
+    repeated string Context = 2;
+}
+
+message TestToTextResponse{
+    string TextToken = 1;
+}
+
+message TextToSoundRequest{
+    string Text = 1;
+    repeated string Context = 2;
+}
+
+message TextToSoundResponse{
+    bytes DataChunk = 1;
+}
+
+message SoundToTextRequest{
+    bytes DataChunk = 1;
+    repeated string Context = 2;
+}
+
+message SoundToTextResponse{
+    string Text = 1;
+}
+
+service AiLoadBalancer {
+    rpc TextToText(stream TextToTextRequest) returns (stream TestToTextResponse);
+    rpc TextToSound(stream TextToTextRequest) returns (stream TextToSoundResponse);
+    rpc SoundToText(stream SoundToTextRequest) returns (stream SoundToTextResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
