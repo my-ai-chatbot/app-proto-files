@@ -17,7 +17,8 @@ message TextToSoundGrpcRequest{
 }
 
 message TextToSoundGrpcResponse{
-    bytes DataChunk = 1;
+    optional bytes DataChunk = 1;
+    optional string TextChunk = 2;
 }
 
 message SoundToTextGrpcRequest{
