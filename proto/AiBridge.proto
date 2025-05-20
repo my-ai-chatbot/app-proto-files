@@ -1,5 +1,5 @@
 syntax = "proto3";
-package ai_load_balancer;
+package ai_bridge;
 import "google/protobuf/empty.proto";
 
 message TextToTextRequest{
