@@ -29,7 +29,7 @@ message SoundToTextResponse{
     string Text = 1;
 }
 
-service AiLoadBalancer {
+service AiBridge {
     rpc TextToText(stream TextToTextRequest) returns (stream TestToTextResponse);
     rpc TextToSound(stream TextToTextRequest) returns (stream TextToSoundResponse);
     rpc SoundToText(stream SoundToTextRequest) returns (stream SoundToTextResponse);
