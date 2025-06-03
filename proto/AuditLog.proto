@@ -12,9 +12,10 @@ message AuditLogGrpcEvent{
 }
 
 message GetEventsGrpcRequest{
-    string ObjectId = 1;
-    int64 FromTimestamp = 2;
-    int64 ToTimestamp = 3;
+    string EventType = 1;
+    string ObjectId = 2;
+    int64 FromTimestamp = 3;
+    int64 ToTimestamp = 4;
 }
 
 service AuditLog {
