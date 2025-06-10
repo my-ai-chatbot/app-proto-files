@@ -14,6 +14,6 @@ message SendEmailGrpcRequest{
 
 
 service CtxManager {
-    rpc SendEmail(stream SendEmailGrpcRequest) returns (google.protobuf.Empty);
+    rpc SendEmail(SendEmailGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
