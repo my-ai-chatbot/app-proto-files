@@ -1,5 +1,5 @@
 syntax = "proto3";
-package chat_history;
+package ai_chat_history;
 import "google/protobuf/empty.proto";
 
 message ChatHistoryGrpcModel{
@@ -10,7 +10,7 @@ message GetChatHistoryGrpcRequest{
     string Id = 1;
 }
 
-service AuditLog {
+service AiChatHistory {
     rpc Save(ChatHistoryGrpcModel) returns (google.protobuf.Empty);
     rpc Get(GetChatHistoryGrpcRequest) returns (ChatHistoryGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
