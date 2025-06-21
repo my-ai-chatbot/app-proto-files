@@ -1,0 +1,18 @@
+syntax = "proto3";
+package stt;
+import "google/protobuf/empty.proto";
+
+
+message SoundChunkGrpcModel{
+    bytes Chunk = 1;
+}
+
+message TextChunkGrpcResponse{
+     string TextChunk = 1;
+}
+
+
+service SoundToText {
+    rpc Execute(stream SoundChunkGrpcModel) returns (stream TextChunkGrpcResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
