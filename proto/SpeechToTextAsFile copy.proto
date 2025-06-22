@@ -12,7 +12,7 @@ message ExecuteAsFileGrpcRequest{
     bytes FileContent = 3;
 }
 
-service SoundToTextAsFile {
+service SpeechToTextAsFile {
     rpc Execute(ExecuteAsFileGrpcRequest) returns (stream TextChunkFromFileGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

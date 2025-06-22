@@ -3,7 +3,7 @@ package stt;
 import "google/protobuf/empty.proto";
 
 
-message SoundChunkGrpcModel{
+message SpeechChunkGrpcModel{
     repeated float Chunk = 1;
 }
 
@@ -17,8 +17,8 @@ message ExecuteAsFileGrpcRequest{
 }
 
 
-service SoundToText {
-    rpc Execute(stream SoundChunkGrpcModel) returns (stream TextChunkGrpcResponse);
+service Speech {
+    rpc Execute(stream SpeechChunkGrpcModel) returns (stream TextChunkGrpcResponse);
     rpc ExecuteAsFile(ExecuteAsFileGrpcRequest) returns (stream TextChunkGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
