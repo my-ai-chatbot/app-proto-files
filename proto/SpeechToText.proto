@@ -10,7 +10,7 @@ message SpeechChunkHeader{
 
 message SpeechChunkGrpcModel{
     optional SpeechChunkHeader Header = 1;
-    repeated bytes Chunk = 2;
+    bytes Chunk = 2;
 }
 
 message TextChunkGrpcResponse{
