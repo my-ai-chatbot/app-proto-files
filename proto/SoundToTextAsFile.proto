@@ -2,7 +2,7 @@ syntax = "proto3";
 package stt_as_file;
 import "google/protobuf/empty.proto";
 
-message TextChunkGrpcResponse{
+message TextChunkFromFileGrpcResponse{
      string TextChunk = 1;
 }
 
@@ -13,6 +13,6 @@ message ExecuteAsFileGrpcRequest{
 }
 
 service SoundToTextAsFile {
-    rpc Execute(ExecuteAsFileGrpcRequest) returns (stream TextChunkGrpcResponse);
+    rpc Execute(ExecuteAsFileGrpcRequest) returns (stream TextChunkFromFileGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
