@@ -2,28 +2,25 @@ syntax = "proto3";
 package ai_bridge;
 import "google/protobuf/empty.proto";
 
-message TextToTextGrpcRequest{
-    string Text = 1;
-    repeated string Context = 2;
+message Header{
+    string Key = 1;
+    string Value = 2;
 }
 
-message TextToTextGrpcResponse{
+message Context{
+    repeated Header Headers = 1;
+}
+
+message ReasoningGrpcRequest{
+    optional Context Ctx = 1;
+    string Text = 2;
+}
+
+message ReasoningGrpcResponse{
     string TextToken = 1;
 }
 
-
-message SoundToSoundAndTextGrpcRequest{
-    bytes DataChunk = 1;
-    repeated string Context = 2;
-}
-
-message SoundToSoundAndTextGrpcResponse{
-    optional bytes DataChunk = 1;
-    optional string TextChunk = 2;
-}
-
 service AiBridge {
-    rpc TextToText(stream TextToTextGrpcRequest) returns (stream TextToTextGrpcResponse);
-    rpc SoundToSoundAndText(stream SoundToSoundAndTextGrpcRequest) returns (stream SoundToSoundAndTextGrpcResponse);
+    rpc ReasoningRequest(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
