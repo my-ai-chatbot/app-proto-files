@@ -4,7 +4,7 @@ import "google/protobuf/empty.proto";
 
 
 message SpeechChunkGrpcModel{
-    repeated float Chunk = 1;
+    repeated bytes Chunk = 1;
 }
 
 message TextChunkGrpcResponse{
