@@ -2,13 +2,10 @@ syntax = "proto3";
 package ai_bridge;
 import "google/protobuf/empty.proto";
 
-message HeaderGrpcModel{
-    string Key = 1;
-    string Value = 2;
-}
+
 
 message ContextGrpcModel{
-    repeated HeaderGrpcModel Headers = 1;
+    repeated string Headers = 1;
 }
 
 message ReasoningGrpcRequest{
