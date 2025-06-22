@@ -1,5 +1,5 @@
 syntax = "proto3";
-package tts_as_file;
+package tts;
 import "google/protobuf/empty.proto";
 
 
@@ -14,7 +14,7 @@ message FileChunkGrpcResponse{
 
 
 
-service TextToSpeechAsFile {
+service TextToSpeech {
     rpc Execute(stream ExecuteTtsAsFileGrpcRequest) returns (stream FileChunkGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
