@@ -3,7 +3,7 @@ package tts;
 import "google/protobuf/empty.proto";
 
 
-message ExecuteTtsAsFileGrpcRequest{
+message TextChunkGrpcRequest{
     string LangCode = 1;
     string Text = 2;
 }
@@ -15,6 +15,6 @@ message FileChunkGrpcResponse{
 
 
 service TextToSpeech {
-    rpc Execute(stream ExecuteTtsAsFileGrpcRequest) returns (stream FileChunkGrpcResponse);
+    rpc Execute(stream TextChunkGrpcRequest) returns (stream FileChunkGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
