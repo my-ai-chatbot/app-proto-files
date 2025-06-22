@@ -2,9 +2,15 @@ syntax = "proto3";
 package stt;
 import "google/protobuf/empty.proto";
 
+message SpeechChunkHeader{
+    string LanguageId = 1;
+    string Mime = 2;
+}
+
 
 message SpeechChunkGrpcModel{
-    repeated bytes Chunk = 1;
+    optional SpeechChunkHeader Header = 1;
+    repeated bytes Chunk = 2;
 }
 
 message TextChunkGrpcResponse{
