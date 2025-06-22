@@ -4,7 +4,7 @@ import "google/protobuf/empty.proto";
 
 
 message SoundChunkGrpcModel{
-    bytes Chunk = 1;
+    repeated fixed32 Chunk = 1;
 }
 
 message TextChunkGrpcResponse{
