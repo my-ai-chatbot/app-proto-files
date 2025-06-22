@@ -2,16 +2,19 @@ syntax = "proto3";
 package tts_as_file;
 import "google/protobuf/empty.proto";
 
-message FileChunkGrpcResponse{
-     bytes FileChunk = 1;
-}
 
 message ExecuteTtsAsFileGrpcRequest{
     string LangCode = 1;
     string Text = 2;
 }
 
+message FileChunkGrpcResponse{
+     bytes FileChunk = 1;
+}
+
+
+
 service TextToSpeechAsFile {
-    rpc Execute(ExecuteTtsAsFileGrpcRequest) returns (stream FileChunkGrpcResponse);
+    rpc Execute(stream ExecuteTtsAsFileGrpcRequest) returns (stream FileChunkGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
