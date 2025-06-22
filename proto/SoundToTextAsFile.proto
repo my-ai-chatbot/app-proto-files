@@ -1,0 +1,17 @@
+syntax = "proto3";
+package stt_as_file;
+import "google/protobuf/empty.proto";
+
+message TextChunkGrpcResponse{
+     string TextChunk = 1;
+}
+
+message ExecuteAsFileGrpcRequest{
+    string Mime = 1;
+    bytes File = 2;
+}
+
+service SoundToTextAsFile {
+    rpc Execute(ExecuteAsFileGrpcRequest) returns (stream TextChunkGrpcResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}

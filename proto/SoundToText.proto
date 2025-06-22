@@ -11,8 +11,14 @@ message TextChunkGrpcResponse{
      string TextChunk = 1;
 }
 
+message ExecuteAsFileGrpcRequest{
+    string Mime = 1;
+    bytes File = 2;
+}
+
 
 service SoundToText {
     rpc Execute(stream SoundChunkGrpcModel) returns (stream TextChunkGrpcResponse);
+    rpc ExecuteAsFile(ExecuteAsFileGrpcRequest) returns (stream TextChunkGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
