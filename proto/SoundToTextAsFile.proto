@@ -7,8 +7,9 @@ message TextChunkGrpcResponse{
 }
 
 message ExecuteAsFileGrpcRequest{
-    string Mime = 1;
-    bytes File = 2;
+    string LangCode = 1;
+    string Mime = 2;
+    bytes FileContent = 3;
 }
 
 service SoundToTextAsFile {
