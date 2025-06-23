@@ -18,6 +18,6 @@ message ReasoningGrpcResponse{
 }
 
 service AiBridge {
-    rpc ReasoningRequest(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
+    rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
