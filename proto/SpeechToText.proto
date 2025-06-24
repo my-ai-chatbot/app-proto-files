@@ -15,6 +15,7 @@ message SpeechChunkGrpcModel{
 
 message TextChunkGrpcResponse{
      string TextChunk = 1;
+     bool ReadyToProcess = 2;
 }
 
 
