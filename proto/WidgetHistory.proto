@@ -16,12 +16,12 @@ message WidgetHistoryGrpcModel{
 
 message WidgetHistoryGrpcRequest{
     string ChatId = 1;
-    repeated WidgetHistoryGrpcModel Models = 2;
+    WidgetHistoryGrpcModel Model = 2;
 }
 
 
 service WidgetHistory {
     rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
-    rpc Save(WidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
+    rpc Save(stream WidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
