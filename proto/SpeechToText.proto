@@ -15,10 +15,14 @@ message SpeechChunkGrpcModel{
 }
 
 message TextChunkGrpcResponse{
-     string TextChunk = 1;
-     bool ReadyToProcess = 2;
+     string TextChunk = 1;   
+     optional ReadyToProcessGrpcModel ReadyToProcess = 2;
 }
 
+message ReadyToProcessGrpcModel{
+    bytes AudioChunk = 1;
+    string FileId = 2;
+}
 
 service SpeechToText {
     rpc Execute(stream SpeechChunkGrpcModel) returns (stream TextChunkGrpcResponse);
