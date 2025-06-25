@@ -6,6 +6,7 @@ import "google/protobuf/empty.proto";
 
 message ContextGrpcModel{
     repeated string Headers = 1;
+    bool Voice = 2;
 }
 
 message ReasoningGrpcRequest{
