@@ -6,6 +6,7 @@ import "google/protobuf/empty.proto";
 message TextChunkGrpcRequest{
     string LangCode = 1;
     string Text = 2;
+    string LogFileName = 3;
 }
 
 message FileChunkGrpcResponse{
