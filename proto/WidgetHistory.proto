@@ -1,0 +1,27 @@
+syntax = "proto3";
+package widget_history;
+import "google/protobuf/empty.proto";
+
+message GetWidgetHistoryGrpcRequest{
+    string ChatId = 1;
+    uint32 TakeLast = 2;
+}
+
+message WidgetHistoryGrpcModel{
+    int64 TimeStamp = 1;
+    bool Human = 2;
+    bool Sound = 3;
+    string Text = 4;
+}
+
+message WidgetHistoryGrpcRequest{
+    string ChatId = 1;
+    repeated WidgetHistoryGrpcModel Models = 2;
+}
+
+
+service WidgetHistory {
+    rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
+    rpc Save(WidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
