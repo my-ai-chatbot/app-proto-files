@@ -20,8 +20,7 @@ message TextChunkGrpcResponse{
 }
 
 message ReadyToProcessGrpcModel{
-    bytes AudioChunk = 1;
-    string FileId = 2;
+    string FileId = 1;
 }
 
 service SpeechToText {
