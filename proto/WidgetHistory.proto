@@ -11,7 +11,8 @@ message WidgetHistoryGrpcModel{
     int64 TimeStamp = 1;
     bool Human = 2;
     bool Sound = 3;
-    string Text = 4;
+    string RequestId = 4;
+    string Text = 5;
 }
 
 message SaveWidgetHistoryGrpcRequest{
