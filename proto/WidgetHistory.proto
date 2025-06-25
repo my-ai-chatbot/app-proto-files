@@ -13,7 +13,10 @@ message WidgetHistoryGrpcModel{
     bool Sound = 3;
     string RequestId = 4;
     string Text = 5;
+    optional string FileReference = 6;
 }
+
+
 
 message SaveWidgetHistoryGrpcRequest{
     string ChatId = 1;
