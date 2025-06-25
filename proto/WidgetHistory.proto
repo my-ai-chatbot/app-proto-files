@@ -14,7 +14,7 @@ message WidgetHistoryGrpcModel{
     string Text = 4;
 }
 
-message WidgetHistoryGrpcRequest{
+message SaveWidgetHistoryGrpcRequest{
     string ChatId = 1;
     WidgetHistoryGrpcModel Model = 2;
 }
@@ -22,6 +22,6 @@ message WidgetHistoryGrpcRequest{
 
 service WidgetHistory {
     rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
-    rpc Save(stream WidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
+    rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
