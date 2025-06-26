@@ -1,5 +1,5 @@
 syntax = "proto3";
-package dg;
+package ai_tool_calls;
 import "google/protobuf/empty.proto";
 
 message ToolCallGrpcRequest{
@@ -11,7 +11,7 @@ message ToolCallGrpcResponse{
     string Response = 1;
 }
 
-service Dg {
-    rpc ToolCall(ToolCallGrpcRequest) returns (ToolCallGrpcResponse);
+service AiToolCalls {
+    rpc Execute(ToolCallGrpcRequest) returns (ToolCallGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
