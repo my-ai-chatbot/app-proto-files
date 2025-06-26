@@ -1,0 +1,17 @@
+syntax = "proto3";
+package dg;
+import "google/protobuf/empty.proto";
+
+message ToolCallGrpcRequest{
+    string Name = 1;
+    string Params = 2;
+}
+
+message ToolCallGrpcResponse{
+    string Response = 1;
+}
+
+service Dg {
+    rpc ToolCall(ToolCallGrpcRequest) returns (ToolCallGrpcResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
