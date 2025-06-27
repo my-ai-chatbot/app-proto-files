@@ -1,0 +1,17 @@
+syntax = "proto3";
+package fuzzy_resolver;
+import "google/protobuf/empty.proto";
+
+
+message ResolveCountryGrpcRequest{
+    string Text =1;
+}
+
+message ResolveCountryGrpcResponse{
+    string CountryCode =1;
+}
+
+service FuzzyResolver {
+    rpc ResolveCountry(ResolveCountryGrpcRequest) returns (stream ResolveCountryGrpcResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
