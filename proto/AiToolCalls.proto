@@ -12,11 +12,11 @@ message ToolCallGrpcResponse{
 }
 
 message ToolCallsJsonGrpcResponse{
-    bytes ResponseChunk = 1;
+    string Response = 1;
 }
 
 service AiToolCalls {
     rpc Execute(ToolCallGrpcRequest) returns (ToolCallGrpcResponse);
-    rpc GetToolCallsJson(google.protobuf.Empty) returns (stream ToolCallsJsonGrpcResponse);
+    rpc GetToolCallsJson(google.protobuf.Empty) returns (ToolCallsJsonGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
