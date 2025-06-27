@@ -12,6 +12,6 @@ message ResolveCountryGrpcResponse{
 }
 
 service FuzzyResolver {
-    rpc ResolveCountry(ResolveCountryGrpcRequest) returns (stream ResolveCountryGrpcResponse);
+    rpc ResolveCountry(ResolveCountryGrpcRequest) returns (ResolveCountryGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
