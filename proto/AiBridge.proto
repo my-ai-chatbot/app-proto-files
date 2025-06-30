@@ -16,7 +16,7 @@ message ReasoningGrpcRequest{
 
 message ReasoningGrpcResponse{
     string TextToken = 1;
-    repeated AiBridgeToolCallGrpcModel ToolCallModels = 2;
+     AiBridgeToolCallGrpcModel ToolCalls = 2;
 }
 
 message AiBridgeToolCallGrpcModel{
