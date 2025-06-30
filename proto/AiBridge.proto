@@ -16,7 +16,14 @@ message ReasoningGrpcRequest{
 
 message ReasoningGrpcResponse{
     string TextToken = 1;
+    repeated AiBridgeToolCallGrpcModel ToolCallModels = 2;
 }
+
+message AiBridgeToolCallGrpcModel{
+    string FnName = 1;
+    string Data = 2;
+}
+
 
 service AiBridge {
     rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
