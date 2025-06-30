@@ -14,6 +14,13 @@ message WidgetHistoryGrpcModel{
     string RequestId = 4;
     string Text = 5;
     optional string FileReference = 6;
+    repeated ToolCallGrpcModel ToolCallObjects = 7; 
+}
+
+
+message ToolCallGrpcModel{
+    string FnName = 1;
+    string Data = 2;
 }
 
 
