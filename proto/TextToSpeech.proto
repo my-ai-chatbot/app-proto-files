@@ -7,6 +7,7 @@ message TextChunkGrpcRequest{
     string LangCode = 1;
     string Text = 2;
     string LogFileName = 3;
+    string RequestId = 4;
 }
 
 message FileChunkGrpcResponse{

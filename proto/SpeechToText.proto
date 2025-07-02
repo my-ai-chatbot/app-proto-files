@@ -6,6 +6,7 @@ message SpeechChunkHeader{
     string LanguageId = 1;
     string Mime = 2;
     uint32 SampleRate = 3;
+    string RequestId = 4;
 }
 
 
