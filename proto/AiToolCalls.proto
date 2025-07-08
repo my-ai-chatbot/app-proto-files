@@ -5,6 +5,7 @@ import "google/protobuf/empty.proto";
 message ToolCallGrpcRequest{
     string Name = 1;
     string Params = 2;
+    string Context = 3;
 }
 
 message ToolCallGrpcResponse{
