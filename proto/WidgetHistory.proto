@@ -15,12 +15,18 @@ message WidgetHistoryGrpcModel{
     string Text = 5;
     optional string FileReference = 6;
     repeated ToolCallGrpcModel ToolCallObjects = 7; 
+    repeated ActionGrpcModel Actions = 8;
 }
 
 
 message ToolCallGrpcModel{
     string FnName = 1;
     string Data = 2;
+}
+
+message ActionGrpcModel{
+    string Title = 1;
+    string Prompt = 2;
 }
 
 
