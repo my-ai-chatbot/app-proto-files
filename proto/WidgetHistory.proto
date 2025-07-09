@@ -26,7 +26,7 @@ message ToolCallGrpcModel{
 
 message ActionGrpcModel{
     string Title = 1;
-    string Prompt = 2;
+    string Command = 2;
 }
 
 
