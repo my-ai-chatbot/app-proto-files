@@ -21,12 +21,6 @@ message WidgetHistoryGrpcModel{
 message ToolCallGrpcModel{
     string FnName = 1;
     string Data = 2;
-    repeated ActionGrpcModel Actions = 3;
-}
-
-message ActionGrpcModel{
-    string Title = 1;
-    string Command = 2;
 }
 
 
