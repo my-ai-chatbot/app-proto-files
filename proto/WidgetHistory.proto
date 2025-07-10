@@ -15,6 +15,9 @@ message WidgetHistoryGrpcModel{
     string Text = 5;
     optional string FileReference = 6;
     repeated ToolCallGrpcModel ToolCallObjects = 7; 
+    optional string Gallery = 8;
+    optional string Brochure = 9;
+
 }
 
 
