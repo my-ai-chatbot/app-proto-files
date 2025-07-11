@@ -17,7 +17,8 @@ message WidgetHistoryGrpcModel{
     repeated ToolCallGrpcModel ToolCallObjects = 7; 
     optional string Gallery = 8;
     optional string Brochure = 9;
-    repeated string UsedActions = 10;
+    string EventId = 10;
+    repeated string UsedActions = 11;
 }
 
 
