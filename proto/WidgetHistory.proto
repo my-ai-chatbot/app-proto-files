@@ -18,7 +18,11 @@ message WidgetHistoryGrpcModel{
     optional string Gallery = 8;
     optional string Brochure = 9;
     string EventId = 10;
-    repeated string UsedActions = 11;
+    repeated UsedOfferAction UsedOfferActions = 11;
+}
+message UsedOfferAction{
+    string EventId = 1;
+    string OfferId = 2;
 }
 
 
