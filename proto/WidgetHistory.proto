@@ -41,12 +41,18 @@ message SaveWidgetHistoryGrpcRequest{
     WidgetHistoryGrpcModel Model = 2;
 }
 
+message UseOfferActionsGrpcRequest{
+    string EventId = 1;
+    string OfferId = 2;
+    string ActionId = 3;
+}
+
 
 
 
 service WidgetHistory {
     rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
     rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
-    rpc UseOfferActions(stream UsedOfferActionGrpcModel) returns (google.protobuf.Empty);
+    rpc UseOfferActions(stream UseOfferActionsGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
