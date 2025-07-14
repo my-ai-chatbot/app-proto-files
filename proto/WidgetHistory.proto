@@ -21,20 +21,15 @@ message WidgetHistoryGrpcModel{
     repeated UsedOfferActionGrpcModel UsedOfferActions = 11;
 }
 
-
 message UsedOfferActionGrpcModel{
     string OfferId = 1;
     string ActionId = 2;
 }
 
-
-
 message ToolCallGrpcModel{
     string FnName = 1;
     string Data = 2;
 }
-
-
 
 message SaveWidgetHistoryGrpcRequest{
     string ChatId = 1;
@@ -47,12 +42,14 @@ message UseOfferActionsGrpcRequest{
     string ActionId = 3;
 }
 
-
-
+message DeleteHistoryGrpcRequest{
+    string ChatId = 1;
+}
 
 service WidgetHistory {
     rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
     rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc UseOfferActions(stream UseOfferActionsGrpcRequest) returns (google.protobuf.Empty);
+    rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

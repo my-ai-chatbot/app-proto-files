@@ -6,12 +6,18 @@ message ChatHistoryGrpcModel{
     string Id = 1;
     string History = 2;
 }
+
 message GetChatHistoryGrpcRequest{
+    string Id = 1;
+}
+
+message DeleteHistoryGrpcRequest{
     string Id = 1;
 }
 
 service AiChatHistory {
     rpc Save(ChatHistoryGrpcModel) returns (google.protobuf.Empty);
     rpc Get(GetChatHistoryGrpcRequest) returns (ChatHistoryGrpcModel);
+    rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
