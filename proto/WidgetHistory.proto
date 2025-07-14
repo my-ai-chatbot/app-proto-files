@@ -28,7 +28,8 @@ message UsedOfferActionGrpcModel{
 
 message ToolCallGrpcModel{
     string FnName = 1;
-    string Data = 2;
+    string ResponseData = 2;
+    string RequestData = 3;
 }
 
 message SaveWidgetHistoryGrpcRequest{
