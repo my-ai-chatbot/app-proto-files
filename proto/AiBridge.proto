@@ -22,7 +22,8 @@ message ReasoningGrpcResponse{
 
 message AiBridgeToolCallGrpcModel{
     string FnName = 1;
-    string Data = 2;
+    string ResponseData = 2;
+    string RequestData = 3;
 }
 
 
