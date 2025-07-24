@@ -19,6 +19,7 @@ message WidgetHistoryGrpcModel{
     optional string Brochure = 9;
     string EventId = 10;
     repeated UsedOfferActionGrpcModel UsedOfferActions = 11;
+    string TimeZone = 12;
 }
 
 message UsedOfferActionGrpcModel{
