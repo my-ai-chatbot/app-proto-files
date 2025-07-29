@@ -9,8 +9,8 @@ message ToolCallGrpcRequest{
 }
 
 message ToolCallGrpcResponse{
-    string ResponseOk = 1;
-    string Error = 2;
+    string Response = 1;
+    bool Error = 2;
 }
 
 message ToolCallsJsonGrpcResponse{
