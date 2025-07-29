@@ -30,6 +30,7 @@ message MessageGrpcModel {
     int64 Timestamp = 4;
     optional string Message = 5;
     optional string FileId = 6;
+    optional string Ctx = 7;
 }
 
 
