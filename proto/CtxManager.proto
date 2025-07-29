@@ -3,37 +3,6 @@ package ctx_manager;
 import "google/protobuf/empty.proto";
 
 
-enum MessageDirection{
-    FromClient = 0;
-    FromServer = 1;
-}
-
-message WriteMessageGrpcModel{
-    string CtxId = 1;
-    string RequestId = 2;
-    MessageDirection Direction = 3;
-    int64 Timestamp = 4;
-    optional string Message = 5;
-    optional string FileId = 6;
-}
-
-message GetLastMessagesGrpcRequest{
-    string CtxId = 1;
-    int32 Amount = 2;
-}
-
-
-message MessageGrpcModel {
-    string EventId = 1;
-    string RequestId = 2;
-    MessageDirection Direction = 3;
-    int64 Timestamp = 4;
-    optional string Message = 5;
-    optional string FileId = 6;
-    optional string Ctx = 7;
-}
-
-
 message SaveChatSessionGrpcModel{
     int64 Timestamp = 1;
     string Id = 2;
@@ -43,6 +12,7 @@ message SaveChatSessionGrpcModel{
     string Origin = 6;
     string UserAgent = 7;
     string Languages = 8;
+    string TimeZone = 9;
 }
 
 message GetLastSessionsGrpcRequest{
@@ -59,15 +29,12 @@ message ChatSessionGrpcModel{
     string Languages = 8;
     int64 Created = 9;
     int64 Update = 10;
+    string TimeZone = 11;
 }
 
 
 service CtxManager {
-
     rpc SaveChatSessions(stream SaveChatSessionGrpcModel) returns (google.protobuf.Empty);
     rpc GetLastSessions(GetLastSessionsGrpcRequest) returns (stream ChatSessionGrpcModel);
-
-    //rpc SaveMessages(stream WriteMessageGrpcModel) returns (google.protobuf.Empty);
-   // rpc GetLastMessages(GetLastMessagesGrpcRequest) returns (stream MessageGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
