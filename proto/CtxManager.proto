@@ -67,7 +67,7 @@ service CtxManager {
     rpc SaveChatSessions(stream SaveChatSessionGrpcModel) returns (google.protobuf.Empty);
     rpc GetLastSessions(GetLastSessionsGrpcRequest) returns (stream ChatSessionGrpcModel);
 
-    rpc SaveMessages(stream WriteMessageGrpcModel) returns (google.protobuf.Empty);
-    rpc GetLastMessages(GetLastMessagesGrpcRequest) returns (stream MessageGrpcModel);
+    //rpc SaveMessages(stream WriteMessageGrpcModel) returns (google.protobuf.Empty);
+   // rpc GetLastMessages(GetLastMessagesGrpcRequest) returns (stream MessageGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
