@@ -9,12 +9,13 @@ message ToolCallGrpcRequest{
 }
 
 message ToolCallGrpcResponse{
-    string Response = 1;
+    string ResponseOk = 1;
+    string Error = 2;
 }
 
 message ToolCallsJsonGrpcResponse{
-    string ResponseOk = 1;
-    string Error = 2;
+    string Response = 1;
+
 }
 
 service AiToolCalls {
