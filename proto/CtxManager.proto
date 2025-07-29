@@ -12,7 +12,8 @@ message SaveChatSessionGrpcModel{
     string Origin = 6;
     string UserAgent = 7;
     string Languages = 8;
-    string TimeZone = 9;
+    string TimeOffset = 9;
+    string TimeZone = 10;
 }
 
 message GetLastSessionsGrpcRequest{
@@ -29,7 +30,8 @@ message ChatSessionGrpcModel{
     string Languages = 8;
     int64 Created = 9;
     int64 Update = 10;
-    string TimeZone = 11;
+    string TimeOffset = 11;
+    string TimeZone = 12;
 }
 
 
