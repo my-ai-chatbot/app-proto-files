@@ -1,0 +1,26 @@
+syntax = "proto3";
+package personal_data;
+import "google/protobuf/empty.proto";
+
+message GetPersonalDataGrpcRequest{
+    string sessionId = 1;
+}
+
+message GetPersonalDataGrpcResponse{
+    optional PersonalDataGrpcModel Model =1;
+}
+
+message PersonalDataGrpcModel{
+    string SessionId = 1;
+    optional string FullName = 2;
+    optional string Email = 3;
+    optional string Phone = 4;
+}
+
+
+
+service PersonalData {
+    rpc Get(GetPersonalDataGrpcRequest) returns (GetPersonalDataGrpcResponse);
+    rpc Save(PersonalDataGrpcModel) returns (google.protobuf.Empty);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
