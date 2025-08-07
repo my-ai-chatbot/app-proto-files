@@ -5,6 +5,10 @@ import "google/protobuf/empty.proto";
 message ChatHistoryGrpcModel{
     string Id = 1;
     string History = 2;
+    string Summary = 3;
+    uint64 No = 4;
+    uint64 LastSummaryNo = 5;
+
 }
 
 message GetChatHistoryGrpcRequest{
