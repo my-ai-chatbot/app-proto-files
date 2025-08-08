@@ -15,6 +15,10 @@ message GetChatHistoryGrpcRequest{
     string Id = 1;
 }
 
+message GetChatHistoryListGrpcRequest{
+    repeated string Id = 1;
+}
+
 message DeleteHistoryGrpcRequest{
     string Id = 1;
 }
@@ -22,6 +26,8 @@ message DeleteHistoryGrpcRequest{
 service AiChatHistory {
     rpc Save(ChatHistoryGrpcModel) returns (google.protobuf.Empty);
     rpc Get(GetChatHistoryGrpcRequest) returns (ChatHistoryGrpcModel);
+    rpc GetList(GetChatHistoryListGrpcRequest) returns (stream ChatHistoryGrpcModel);
+
     rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
