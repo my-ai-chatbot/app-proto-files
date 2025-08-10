@@ -23,8 +23,16 @@ message DeleteHistoryGrpcRequest{
     string Id = 1;
 }
 
+message UpdateSummaryGrpcRequest{
+    string Id = 1;
+    string Summary = 2;
+    uint64 No = 3;
+}
+
 service AiChatHistory {
     rpc Save(ChatHistoryGrpcModel) returns (google.protobuf.Empty);
+    rpc UpdateSummary(UpdateSummaryGrpcRequest) returns (google.protobuf.Empty);
+
     rpc Get(GetChatHistoryGrpcRequest) returns (ChatHistoryGrpcModel);
     rpc GetList(GetChatHistoryListGrpcRequest) returns (stream ChatHistoryGrpcModel);
 
