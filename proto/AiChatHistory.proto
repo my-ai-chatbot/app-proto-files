@@ -2,6 +2,13 @@ syntax = "proto3";
 package ai_chat_history;
 import "google/protobuf/empty.proto";
 
+
+message SaveChatHistoryGrpcRequest{
+    string Id = 1;
+    string History = 2;
+    uint64 No = 3;   
+}
+
 message ChatHistoryGrpcModel{
     string Id = 1;
     string History = 2;
