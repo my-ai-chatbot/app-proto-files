@@ -37,7 +37,7 @@ message UpdateSummaryGrpcRequest{
 }
 
 service AiChatHistory {
-    rpc Save(ChatHistoryGrpcModel) returns (google.protobuf.Empty);
+    rpc Save(SaveChatHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc UpdateSummary(UpdateSummaryGrpcRequest) returns (google.protobuf.Empty);
 
     rpc Get(GetChatHistoryGrpcRequest) returns (ChatHistoryGrpcModel);
