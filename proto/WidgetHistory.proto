@@ -20,6 +20,7 @@ message WidgetHistoryGrpcModel{
     string EventId = 10;
     repeated UsedOfferActionGrpcModel UsedOfferActions = 11;
     bool Error = 12;
+    bool Hidden = 13;
 }
 
 message UsedOfferActionGrpcModel{
