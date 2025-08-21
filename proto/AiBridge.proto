@@ -27,8 +27,18 @@ message AiBridgeToolCallGrpcModel{
     string RequestData = 3;
 }
 
+message GetDynamicContentGrpcRequest{
+    repeated string Headers = 1;
+    string Text = 2;
+}
+
+message GetDynamicContentGrpcResponse{
+    string Text = 1;
+}
+
 
 service AiBridge {
     rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
+    rpc GetDynamicContent(GetDynamicContentGrpcRequest) returns (GetDynamicContentGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
