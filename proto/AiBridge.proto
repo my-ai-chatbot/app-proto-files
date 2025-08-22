@@ -30,7 +30,8 @@ message AiBridgeToolCallGrpcModel{
 message GetDynamicContentGrpcRequest{
     repeated string Headers = 1;
     string Text = 2;
-    uint64 Position = 3;
+    string DomainAndPath = 3;
+    uint64 Position = 4;
 }
 
 message GetDynamicContentGrpcResponse{
