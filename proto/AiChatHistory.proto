@@ -15,6 +15,7 @@ message ChatHistoryGrpcModel{
     string Summary = 3;
     uint64 No = 4;
     uint64 LastSummaryNo = 5;
+    string TechSummary = 6;
 
 }
 
