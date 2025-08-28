@@ -33,7 +33,9 @@ message DeleteHistoryGrpcRequest{
 message UpdateSummaryGrpcRequest{
     string Id = 1;
     string Summary = 2;
-    uint64 No = 3;
+    string TechSummary = 3;
+    uint64 No = 4;
+    
 }
 
 service AiChatHistory {
