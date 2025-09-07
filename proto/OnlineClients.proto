@@ -1,0 +1,18 @@
+syntax = "proto3";
+package online_clients;
+import "google/protobuf/empty.proto";
+
+
+message OnlineClientsGrpcModel{
+    string TenantId = 1;
+    string InventoryId = 2;
+    string Ip = 3;
+    string Country = 4;
+}
+
+
+service OnlineClients {
+    rpc Update(stream OnlineClientsGrpcModel) returns (google.protobuf.Empty);
+    rpc GetOnlineClients(google.protobuf.Empty) returns (stream OnlineClientsGrpcModel);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
