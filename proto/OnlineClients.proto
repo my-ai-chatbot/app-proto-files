@@ -12,7 +12,7 @@ message OnlineClientGrpcModel{
 
 
 service OnlineClients {
-    rpc Update(stream OnlinClientsGrpcModel) returns (google.protobuf.Empty);
+    rpc Update(stream OnlineClientGrpcModel) returns (google.protobuf.Empty);
     rpc Get(google.protobuf.Empty) returns (stream OnlineClientGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
