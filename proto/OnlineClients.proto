@@ -3,7 +3,7 @@ package online_clients;
 import "google/protobuf/empty.proto";
 
 
-message OnlineClientsGrpcModel{
+message OnlineClientGrpcModel{
     string TenantId = 1;
     string InventoryId = 2;
     string Ip = 3;
@@ -12,7 +12,7 @@ message OnlineClientsGrpcModel{
 
 
 service OnlineClients {
-    rpc Update(stream OnlineClientsGrpcModel) returns (google.protobuf.Empty);
-    rpc Get(google.protobuf.Empty) returns (stream OnlineClientsGrpcModel);
+    rpc Update(stream OnlinClientsGrpcModel) returns (google.protobuf.Empty);
+    rpc Get(google.protobuf.Empty) returns (stream OnlineClientGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
