@@ -16,9 +16,16 @@ message OnlineClientGrpcModel{
     
 }
 
+message DisconnectGrpcModel{
+    string InventoryId = 1;
+    string SessionId = 2;
+}
+
 
 service OnlineClients {
-    rpc Update(stream OnlineClientGrpcModel) returns (google.protobuf.Empty);
+    rpc UpdateSnapshot(stream OnlineClientGrpcModel) returns (google.protobuf.Empty);
+    rpc Connect(stream OnlineClientGrpcModel) returns (google.protobuf.Empty);
+    rpc Disconnect(stream DisconnectGrpcModel) returns (google.protobuf.Empty);
     rpc Get(google.protobuf.Empty) returns (stream OnlineClientGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
