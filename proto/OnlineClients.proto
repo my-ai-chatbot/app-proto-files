@@ -23,6 +23,11 @@ message DisconnectGrpcModel{
 }
 
 
+message ConnectDisconnectGrpcRequest{
+    optional OnlineClientGrpcModel Connect = 1;
+    optional DisconnectGrpcModel Disconnect = 2;
+}
+
 service OnlineClients {
     rpc UpdateSnapshot(stream OnlineClientGrpcModel) returns (google.protobuf.Empty);
     rpc Connect(stream OnlineClientGrpcModel) returns (google.protobuf.Empty);
