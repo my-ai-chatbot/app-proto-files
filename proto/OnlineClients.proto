@@ -10,6 +10,10 @@ message OnlineClientGrpcModel{
     string Ip = 4;
     string Country = 5;
     string Server = 6;
+    string Origin = 7;
+    string Path = 8;
+    string TimeZone = 9;
+    
 }
 
 
