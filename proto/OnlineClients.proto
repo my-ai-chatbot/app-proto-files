@@ -18,7 +18,7 @@ message OnlineClientGrpcModel{
 }
 
 message DisconnectGrpcModel{
-    string InventoryId = 1;
+    string Server = 1;
     string SessionId = 2;
 }
 
