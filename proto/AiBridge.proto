@@ -42,6 +42,7 @@ message GetSummaryGrpcRequest{
     string InventoryId = 1;
     string SessionId = 2;
     string Ctx = 3;
+    string RequestId = 4;
 }
 
 message GetSummaryGrpcResponse{
