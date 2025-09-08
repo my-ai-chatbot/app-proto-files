@@ -41,6 +41,7 @@ message GetDynamicContentGrpcResponse{
 message GetSummaryGrpcRequest{
     string InventoryId = 1;
     string SessionId = 2;
+    string Ctx = 3;
 }
 
 message GetSummaryGrpcResponse{
