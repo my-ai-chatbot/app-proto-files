@@ -38,9 +38,19 @@ message GetDynamicContentGrpcResponse{
     string Text = 1;
 }
 
+message GetSummaryGrpcRequest{
+    string InventoryId = 1;
+    string SessionId = 2;
+}
+
+message GetSummaryGrpcResponse{
+    string Summary = 1;
+    string TechSummary = 2;
+}
 
 service AiBridge {
     rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
     rpc GetDynamicContent(GetDynamicContentGrpcRequest) returns (GetDynamicContentGrpcResponse);
+    rpc GetSummary(GetSummaryGrpcRequest) returns (GetSummaryGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
