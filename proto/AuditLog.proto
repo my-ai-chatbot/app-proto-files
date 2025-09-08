@@ -17,8 +17,13 @@ message GetEventsGrpcRequest{
     string ObjectId = 2;
 }
 
+message GetEventsByObjectIdGrpcRequest{
+    string ObjectId = 1;
+}
+
 service AuditLog {
     rpc Save(stream AuditLogGrpcEvent) returns (google.protobuf.Empty);
     rpc Get(GetEventsGrpcRequest) returns (stream AuditLogGrpcEvent);
+    rpc GetByObjectId(GetEventsByObjectIdGrpcRequest) returns (stream AuditLogGrpcEvent);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
