@@ -39,9 +39,9 @@ message GetDynamicContentGrpcResponse{
 }
 
 message GetSummaryGrpcRequest{
-    string InventoryId = 1;
-    string SessionId = 2;
-    string Ctx = 3;
+    repeated string Headers = 1;
+    string InventoryId = 2;
+    string SessionId = 3;
     string RequestId = 4;
 }
 
