@@ -20,6 +20,7 @@ message SaveChatSessionGrpcModel{
 
 message GetLastSessionsGrpcRequest{
     int32 Take = 1;
+    bool WithMessagesOnly = 2;
 }
 
 message ChatSessionGrpcModel{
