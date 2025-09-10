@@ -38,9 +38,14 @@ message ChatSessionGrpcModel{
     string Inventory = 14;
 }
 
+message GetByIdGrpcRequest{
+    string SessionId=1;
+
+}
 
 service CtxManager {
     rpc SaveChatSessions(stream SaveChatSessionGrpcModel) returns (google.protobuf.Empty);
     rpc GetLastSessions(GetLastSessionsGrpcRequest) returns (stream ChatSessionGrpcModel);
+    rpc GetById(GetByIdGrpcRequest) returns (stream ChatSessionGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
