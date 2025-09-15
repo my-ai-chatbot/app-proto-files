@@ -21,9 +21,16 @@ message GetEventsByObjectIdGrpcRequest{
     string ObjectId = 1;
 }
 
+message GetByEventTypeAnObjectIdGrpcRequest{
+    string EventType = 1;
+    string ObjectId = 2;
+}
+
+
 service AuditLog {
     rpc Save(stream AuditLogGrpcEvent) returns (google.protobuf.Empty);
     rpc Get(GetEventsGrpcRequest) returns (stream AuditLogGrpcEvent);
     rpc GetByObjectId(GetEventsByObjectIdGrpcRequest) returns (stream AuditLogGrpcEvent);
+    rpc GetByEventTypeAndObjectId(GetByEventTypeAnObjectIdGrpcRequest) returns (stream AuditLogGrpcEvent);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
