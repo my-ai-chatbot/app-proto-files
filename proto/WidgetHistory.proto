@@ -21,6 +21,7 @@ message WidgetHistoryGrpcModel{
     repeated UsedOfferActionGrpcModel UsedOfferActions = 11;
     bool Error = 12;
     bool Hidden = 13;
+    repeated string Labels = 14;
 }
 
 message UsedOfferActionGrpcModel{
