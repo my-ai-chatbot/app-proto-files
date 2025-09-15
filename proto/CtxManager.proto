@@ -38,7 +38,7 @@ message ChatSessionGrpcModel{
     string TimeZone = 12;
     string Tenant = 13;
     string Inventory = 14;
-    int64 MessagesAmount = 15;
+    uint64 MessagesAmount = 15;
 }
 
 message GetByIdGrpcRequest{
