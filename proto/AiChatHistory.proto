@@ -39,9 +39,22 @@ message UpdateSummaryGrpcRequest{
     
 }
 
+message GetSummaryGrpcRequest{
+    string SessionId = 1;    
+}
+
+message SummaryGrpcModel{
+    string Id = 1;
+    string Summary = 2;
+    string TechSummary = 3;
+    uint64 No = 4;
+    
+}
+
 service AiChatHistory {
     rpc Save(SaveChatHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc UpdateSummary(UpdateSummaryGrpcRequest) returns (google.protobuf.Empty);
+    rpc GetSummary(GetSummaryGrpcRequest) returns (SummaryGrpcModel);
 
     rpc Get(GetChatHistoryGrpcRequest) returns (ChatHistoryGrpcModel);
     rpc GetList(GetChatHistoryListGrpcRequest) returns (stream ChatHistoryGrpcModel);
