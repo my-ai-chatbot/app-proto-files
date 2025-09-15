@@ -16,6 +16,7 @@ message SaveChatSessionGrpcModel{
     string TimeZone = 10;
     string Tenant = 11;
     string Inventory = 12;
+
 }
 
 message GetLastSessionsGrpcRequest{
@@ -37,6 +38,7 @@ message ChatSessionGrpcModel{
     string TimeZone = 12;
     string Tenant = 13;
     string Inventory = 14;
+    int64 MessagesAmount = 15;
 }
 
 message GetByIdGrpcRequest{
