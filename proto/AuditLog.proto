@@ -10,6 +10,7 @@ message AuditLogGrpcEvent{
     string Message = 5;
     string TechData = 6;
     uint64 DurationMicros = 7;
+    repeated string Labels = 8;
 }
 
 message GetEventsGrpcRequest{
