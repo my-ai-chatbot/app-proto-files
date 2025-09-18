@@ -33,14 +33,14 @@ message NoClientsGrpcRequest{
     string Server = 1;
 }
 
-message KeyValue{
+message KeyValueGrpcModel{
     string Key = 1;
     uint32 Value = 2;
 }
 
 message GetStatisticsGrpcResponse{
-    repeated KeyValue ByCountry =1;
-    repeated KeyValue ByPlatform =2;
+    repeated KeyValueGrpcModel ByCountry =1;
+    repeated KeyValueGrpcModel ByPlatform =2;
     
 }
 
