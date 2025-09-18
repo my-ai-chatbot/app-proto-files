@@ -33,10 +33,15 @@ message NoClientsGrpcRequest{
     string Server = 1;
 }
 
+message KeyValue{
+    string Key = 1;
+    uint32 Value = 2;
+}
 
-message AmountByCountryResultGrpcModel{
-    string Country = 1;
-    uint32 Amount = 2;
+message GetStatisticsGrpcResponse{
+    repeated KeyValue ByCountry =1;
+    repeated KeyValue ByPlatform =2;
+    
 }
 
 service OnlineClients {
@@ -44,6 +49,6 @@ service OnlineClients {
     rpc NoClients(NoClientsGrpcRequest) returns (google.protobuf.Empty);
     rpc ConnectDisconnect(stream ConnectDisconnectGrpcRequest) returns (google.protobuf.Empty);
     rpc Get(google.protobuf.Empty) returns (stream OnlineClientGrpcModel);
-    rpc GetAmountByCountry(google.protobuf.Empty) returns (stream AmountByCountryResultGrpcModel);
+    rpc GetStatistics(google.protobuf.Empty) returns (GetStatisticsGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
