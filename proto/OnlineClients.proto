@@ -41,14 +41,19 @@ message KeyValueGrpcModel{
 message GetStatisticsGrpcResponse{
     repeated KeyValueGrpcModel ByCountry =1;
     repeated KeyValueGrpcModel ByPlatform =2;
-    
 }
+
+message GetByCountryGrpcRequest{
+    string CountryCode = 1;
+}
+
 
 service OnlineClients {
     rpc UpdateSnapshot(stream OnlineClientGrpcModel) returns (google.protobuf.Empty);
     rpc NoClients(NoClientsGrpcRequest) returns (google.protobuf.Empty);
     rpc ConnectDisconnect(stream ConnectDisconnectGrpcRequest) returns (google.protobuf.Empty);
     rpc Get(google.protobuf.Empty) returns (stream OnlineClientGrpcModel);
+    rpc GetByCountry(GetByCountryGrpcRequest) returns (stream OnlineClientGrpcModel);
     rpc GetStatistics(google.protobuf.Empty) returns (GetStatisticsGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
