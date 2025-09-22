@@ -19,6 +19,7 @@ message ReasoningGrpcResponse{
     string TextToken = 1;
     repeated AiBridgeToolCallGrpcModel ToolCalls = 2;
     bool Error = 3;
+    repeated string Labels = 4;
 }
 
 message AiBridgeToolCallGrpcModel{
