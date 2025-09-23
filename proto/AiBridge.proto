@@ -38,8 +38,20 @@ message GetDynamicContentGrpcRequest{
 message GetDynamicContentGrpcResponse{
     string Text = 1;
 }
+
+message ExecuteToolCallGrpcRequest{
+    string InventoryType = 1;
+    string FnName = 2;
+    string Params = 3;
+}
+
+message ExecuteToolCallGrpcResponse{
+    string Response = 1;
+}
+
 service AiBridge {
     rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
     rpc GetDynamicContent(GetDynamicContentGrpcRequest) returns (GetDynamicContentGrpcResponse);
+    rpc ExecuteToolCall(ExecuteToolCallGrpcRequest) returns (ExecuteToolCallGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
