@@ -50,10 +50,18 @@ message DeleteHistoryGrpcRequest{
     string ChatId = 1;
 }
 
+message SetLabelGrpcRequest{
+    string EventId = 1;
+    repeated string Labels = 2;
+
+}
+
 service WidgetHistory {
     rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
     rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
+    rpc SetLabels(SetLabelGrpcRequest) returns  (google.protobuf.Empty);
     rpc UseOfferActions(stream UseOfferActionsGrpcRequest) returns (google.protobuf.Empty);
+    
     rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
