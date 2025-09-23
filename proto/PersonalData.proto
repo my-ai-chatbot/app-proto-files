@@ -18,6 +18,10 @@ message PersonalDataGrpcModel{
     repeated string VerifiedPhones = 5;
 }
 
+message VerifiedPhone{
+    string Phone = 1;
+    int64 Date = 2;
+}
 
 
 
