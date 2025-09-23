@@ -1,0 +1,24 @@
+syntax = "proto3";
+package phone_number_verification;
+import "google/protobuf/empty.proto";
+
+message SendSmsGrpcRequest{
+    string sessionId = 1;
+}
+
+message VerifyCodeGrpcRequest{
+    string sessionId = 1;
+    string Phone = 2;
+    string Code = 3;
+}
+
+message VerifyCodeGrpcResponse{
+    bool Success = 1;
+}
+
+
+service PhoneNumberVerification {
+    rpc SendSms(SendSmsGrpcRequest) returns (google.protobuf.Empty);
+    rpc VerifyCode(VerifyCodeGrpcRequest) returns (VerifyCodeGrpcResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
