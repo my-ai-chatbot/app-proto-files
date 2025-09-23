@@ -15,15 +15,10 @@ message PersonalDataGrpcModel{
     optional string FullName = 2;
     optional string Email = 3;
     optional string Phone = 4;
-    repeated VerifiedPhoneGrpcModel VerifiedPhones = 5;
+    repeated string VerifiedPhones = 5;
 }
 
 
-message VerifiedPhoneGrpcModel{
-    string Phone = 1;
-    string Otp = 2;
-    int64 VerifiedDate = 3;
-}
 
 
 service PersonalData {
