@@ -4,12 +4,14 @@ import "google/protobuf/empty.proto";
 
 message SendSmsGrpcRequest{
     string sessionId = 1;
+    string InventoryId = 2;
 }
 
 message VerifyCodeGrpcRequest{
-    string sessionId = 1;
-    string Phone = 2;
-    string Code = 3;
+    string SessionId = 1;
+    string InventoryId = 2;
+    string Phone = 3;
+    string Code = 4;
 }
 
 message VerifyCodeGrpcResponse{
