@@ -3,8 +3,9 @@ package phone_number_verification;
 import "google/protobuf/empty.proto";
 
 message SendSmsGrpcRequest{
-    string sessionId = 1;
+    string SessionId = 1;
     string InventoryId = 2;
+    string Phone = 3;
 }
 
 message VerifyCodeGrpcRequest{
