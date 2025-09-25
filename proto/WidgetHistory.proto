@@ -56,8 +56,16 @@ message SetLabelGrpcRequest{
 
 }
 
+
+message GetByEventIdGrpcRequest{
+    string EventId = 1;
+
+}
+
 service WidgetHistory {
     rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
+    rpc GetByEventId(GetByEventIdGrpcRequest) returns (WidgetHistoryGrpcModel);
+
     rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc SetLabels(SetLabelGrpcRequest) returns  (google.protobuf.Empty);
     rpc UseOfferActions(stream UseOfferActionsGrpcRequest) returns (google.protobuf.Empty);
