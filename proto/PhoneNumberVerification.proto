@@ -11,8 +11,9 @@ message SendSmsGrpcRequest{
 message VerifyCodeGrpcRequest{
     string SessionId = 1;
     string InventoryId = 2;
-    string Phone = 3;
-    string Code = 4;
+    string TenantId = 3;
+    string Phone = 4;
+    string Code = 5;
 }
 
 message VerifyCodeGrpcResponse{
