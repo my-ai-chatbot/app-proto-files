@@ -23,7 +23,7 @@ message GetEventsByObjectIdGrpcRequest{
 }
 
 message GetByEventTypeAnObjectIdGrpcRequest{
-    string EventType = 1;
+    repeated string EventType = 1;
     string ObjectId = 2;
 }
 
