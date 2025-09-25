@@ -5,7 +5,8 @@ import "google/protobuf/empty.proto";
 message SendSmsGrpcRequest{
     string SessionId = 1;
     string InventoryId = 2;
-    string Phone = 3;
+    string TenantId = 3;
+    string Phone = 4;
 }
 
 message VerifyCodeGrpcRequest{
