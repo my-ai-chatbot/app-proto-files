@@ -67,7 +67,7 @@ message GetByEventIdGrpcResponse{
 
 service WidgetHistory {
     rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
-    rpc GetByEventId(GetByEventIdGrpcRequest) returns ( WidgetHistoryGrpcModel);
+    rpc GetByEventId(GetByEventIdGrpcRequest) returns (GetByEventIdGrpcResponse);
 
     rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc SetLabels(SetLabelGrpcRequest) returns  (google.protobuf.Empty);
