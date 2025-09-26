@@ -61,6 +61,11 @@ message SetLabelGrpcRequest{
 
 }
 
+message UpdateKeyValuesGrpcRequest{
+    string EventId = 1;
+    map<string, string> KeyValue = 2;
+
+}
 
 message GetByEventIdGrpcRequest{
     string EventId = 1;
@@ -76,6 +81,8 @@ service WidgetHistory {
 
     rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
     rpc SetLabels(SetLabelGrpcRequest) returns  (google.protobuf.Empty);
+    rpc UpdateKeyValues(UpdateKeyValuesGrpcRequest) returns  (google.protobuf.Empty);
+
     rpc UseOfferActions(stream UseOfferActionsGrpcRequest) returns (google.protobuf.Empty);
     
     rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
