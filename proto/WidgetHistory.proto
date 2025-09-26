@@ -7,6 +7,9 @@ message GetWidgetHistoryGrpcRequest{
     uint32 TakeLast = 2;
 }
 
+
+
+
 message WidgetHistoryGrpcModel{
     int64 TimeStamp = 1;
     bool Human = 2;
@@ -22,7 +25,9 @@ message WidgetHistoryGrpcModel{
     bool Error = 12;
     bool Hidden = 13;
     repeated string Labels = 14;
+    map<String, String> KeyValue = 15;
 }
+
 
 message UsedOfferActionGrpcModel{
     string OfferId = 1;
