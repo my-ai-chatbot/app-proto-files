@@ -25,7 +25,7 @@ message WidgetHistoryGrpcModel{
     bool Error = 12;
     bool Hidden = 13;
     repeated string Labels = 14;
-    map<String, String> KeyValue = 15;
+    map<string, string> KeyValue = 15;
 }
 
 
