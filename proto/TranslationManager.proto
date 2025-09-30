@@ -1,0 +1,31 @@
+syntax = "proto3";
+package translation_manager;
+import "google/protobuf/empty.proto";
+
+message GetTranslationGrpcRequest{
+    string TenantId = 1;
+    string Language = 2;
+    string Key = 3;
+}
+
+message GetTranslationGrpcResponse{
+    string Message = 1;
+}
+
+message GetTranslationsGrpcRequest{
+    string TenantId = 1;
+    string Language = 2;
+    bool IncludeInternal = 3;
+}
+
+message TranslationGrpcModel{
+    string Key = 1;
+    string Translation = 2;
+}
+
+service TranslationManager {
+    rpc GetTranslation(GetTranslationGrpcRequest) returns (GetTranslationGrpcResponse);
+    rpc GetTranslations(GetTranslationsGrpcRequest) returns (stream TranslationGrpcModel);
+    
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
