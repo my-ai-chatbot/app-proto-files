@@ -37,7 +37,7 @@ message DefaultTranslationGrpcModel{
 
 service TranslationManager {
     rpc GetTranslation(GetTranslationGrpcRequest) returns (GetTranslationGrpcResponse);
-    rpc GetTranslations(GetTranslationsGrpcRequest) returns ( GetTranslationsGrpcResponse);
-    rpc GetDefault(google.protobuf.Empty) returns (stream DefaultTranslationGrpcModel)
+    rpc GetTranslations(GetTranslationsGrpcRequest) returns (GetTranslationsGrpcResponse);
+    rpc GetDefault(google.protobuf.Empty) returns (stream DefaultTranslationGrpcModel);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
