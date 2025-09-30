@@ -18,6 +18,11 @@ message GetTranslationsGrpcRequest{
     bool IncludeInternal = 3;
 }
 
+message GetTranslationsGrpcResponse{
+    repeated TranslationGrpcModel Translations = 1;
+}
+
+
 message TranslationGrpcModel{
     string Key = 1;
     string Translation = 2;
@@ -25,7 +30,7 @@ message TranslationGrpcModel{
 
 service TranslationManager {
     rpc GetTranslation(GetTranslationGrpcRequest) returns (GetTranslationGrpcResponse);
-    rpc GetTranslations(GetTranslationsGrpcRequest) returns (stream TranslationGrpcModel);
+    rpc GetTranslations(GetTranslationsGrpcRequest) returns (GetTranslationsGrpcResponse);
     
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
