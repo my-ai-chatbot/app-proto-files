@@ -28,9 +28,16 @@ message TranslationGrpcModel{
     string Translation = 2;
 }
 
+
+message DefaultTranslationGrpcModel{
+    string InventoryId = 1;
+    string Key = 2;
+    string Translation = 3;
+}
+
 service TranslationManager {
     rpc GetTranslation(GetTranslationGrpcRequest) returns (GetTranslationGrpcResponse);
-    rpc GetTranslations(GetTranslationsGrpcRequest) returns (GetTranslationsGrpcResponse);
-    
+    rpc GetTranslations(GetTranslationsGrpcRequest) returns ( GetTranslationsGrpcResponse);
+    rpc GetDefault(google.protobuf.Empty) returns (stream DefaultTranslationGrpcModel)
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
