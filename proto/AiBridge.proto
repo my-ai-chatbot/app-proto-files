@@ -49,9 +49,20 @@ message ExecuteToolCallGrpcResponse{
     string Response = 1;
 }
 
+message DoChatTestGrpcRequest{
+    string Id = 1;
+    string TenantId = 2;
+}
+
+message DoChatTestGrpcResponse{
+    string Response = 1;
+}
+
 service AiBridge {
     rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
     rpc GetDynamicContent(GetDynamicContentGrpcRequest) returns (GetDynamicContentGrpcResponse);
     rpc ExecuteToolCall(ExecuteToolCallGrpcRequest) returns (ExecuteToolCallGrpcResponse);
+
+    rpc DoChatTest(DoChatTestGrpcRequest) returns (DoChatTestGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
