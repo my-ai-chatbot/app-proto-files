@@ -52,6 +52,7 @@ message ExecuteToolCallGrpcResponse{
 message DoChatTestGrpcRequest{
     string Id = 1;
     string TenantId = 2;
+    string LanguageId = 3;
 }
 
 message DoChatTestGrpcResponse{
