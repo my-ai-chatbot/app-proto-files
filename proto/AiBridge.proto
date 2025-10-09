@@ -57,6 +57,7 @@ message DoChatTestGrpcRequest{
 
 message DoChatTestGrpcResponse{
     string ProcessId = 1;
+    string Error = 2;
 }
 
 service AiBridge {
