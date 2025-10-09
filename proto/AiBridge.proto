@@ -53,6 +53,7 @@ message DoChatTestGrpcRequest{
     string Id = 1;
     string TenantId = 2;
     string LanguageId = 3;
+    string Inventory = 4;
 }
 
 message DoChatTestGrpcResponse{
