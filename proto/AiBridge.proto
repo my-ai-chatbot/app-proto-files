@@ -50,15 +50,14 @@ message ExecuteToolCallGrpcResponse{
 }
 
 message DoChatTestGrpcRequest{
-    string Id = 1;
-    string TenantId = 2;
-    string LanguageId = 3;
-    string Inventory = 4;
+    string TenantId = 1;
+    string LanguageId = 2;
+    string Inventory = 3;
+    repeated string Id = 4;
 }
 
 message DoChatTestGrpcResponse{
-    string ProcessId = 1;
-    string Error = 2;
+    string Error = 1;
 }
 
 service AiBridge {
