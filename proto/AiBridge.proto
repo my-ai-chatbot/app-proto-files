@@ -60,10 +60,17 @@ message DoChatTestGrpcResponse{
     string Error = 1;
 }
 
+message GetMpcFunctionsGrpcResponse{
+    repeated string Functions = 1;
+}
+
 service AiBridge {
     rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
     rpc GetDynamicContent(GetDynamicContentGrpcRequest) returns (GetDynamicContentGrpcResponse);
     rpc ExecuteToolCall(ExecuteToolCallGrpcRequest) returns (ExecuteToolCallGrpcResponse);
+
+
+    rpc GetMcpFunctions(google.protobuf.Empty) returns (GetMpcFunctionsGrpcResponse);
 
     rpc DoChatTest(DoChatTestGrpcRequest) returns (DoChatTestGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
