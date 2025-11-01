@@ -1,0 +1,16 @@
+syntax = "proto3";
+package silero_vad;
+import "google/protobuf/empty.proto";
+
+message SileroVadChunkRequest {
+    bytes Data = 1;
+}
+
+message SileroVadResultSpeach {
+    bytes Data = 1;
+}
+
+service PhoneNumberVerification {
+    rpc SendSms(stream SileroVadChunkRequest) returns (stream SileroVadResultSpeach);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
