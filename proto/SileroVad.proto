@@ -10,7 +10,7 @@ message SileroVadResultSpeach {
     bytes Data = 1;
 }
 
-service PhoneNumberVerification {
+service SileroVadGrpcServer {
     rpc Vad(stream SileroVadChunkRequest) returns (stream SileroVadResultSpeach);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
