@@ -11,6 +11,6 @@ message SileroVadResultSpeach {
 }
 
 service PhoneNumberVerification {
-    rpc SendSms(stream SileroVadChunkRequest) returns (stream SileroVadResultSpeach);
+    rpc Vad(stream SileroVadChunkRequest) returns (stream SileroVadResultSpeach);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
