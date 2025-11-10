@@ -7,18 +7,17 @@ message SpeechChunkSessionDataGrpcModel{
 }
 
 message SpeechChunkDataGrpcModel{
-    bytes SpeachData = 1;
+    bytes SpeechData = 1;
 }
 
-message SpeachChunkGrpcModel{
-    oneof speach_data{
+message SpeechChunkGrpcModel{
+    oneof speech_data{
         SpeechChunkSessionDataGrpcModel SessionData = 1;
         SpeechChunkDataGrpcModel Data = 2;
     }
 }
 
-
 service SpeechToText {
-    rpc Execute(stream SpeachChunkGrpcModel) returns (google.protobuf.Empty);
+    rpc Execute(stream SpeechChunkGrpcModel) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
