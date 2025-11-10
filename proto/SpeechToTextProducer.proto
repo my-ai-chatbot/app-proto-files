@@ -1,0 +1,15 @@
+syntax = "proto3";
+package stt_producer;
+import "google/protobuf/empty.proto";
+
+
+message ProduceSpeechGrpcRequest{
+    string SessionId = 1;
+    bytes SpeechData = 2;
+}
+
+
+service SpeechToText {
+    rpc Produce(ProduceSpeechGrpcRequest) returns (google.protobuf.Empty);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
