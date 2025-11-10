@@ -9,7 +9,7 @@ message ProduceSpeechGrpcRequest{
 }
 
 
-service SpeechToText {
+service SpeechToTextProducer {
     rpc Produce(ProduceSpeechGrpcRequest) returns (google.protobuf.Empty);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
