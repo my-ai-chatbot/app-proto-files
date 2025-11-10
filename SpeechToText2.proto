@@ -1,0 +1,24 @@
+syntax = "proto3";
+package stt2;
+import "google/protobuf/empty.proto";
+
+message SpeechChunkSessionDataGrpcModel{
+    string SessionId = 1;
+}
+
+message SpeechChunkDataGrpcModel{
+    bytes SpeachData = 1;
+}
+
+message SpeachChunkGrpcModel{
+    oneof speach_data{
+        SpeechChunkSessionDataGrpcModel SessionData = 1;
+        SpeechChunkDataGrpcModel Data = 2;
+    }
+}
+
+
+service SpeechToText {
+    rpc Execute(stream SpeachChunkGrpcModel) returns (google.protobuf.Empty);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
