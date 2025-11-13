@@ -5,7 +5,8 @@ import "google/protobuf/empty.proto";
 
 message ProduceSpeechGrpcRequest{
     string SessionId = 1;
-    bytes SpeechData = 2;
+    string Language = 2;
+    bytes SpeechData = 3;
 }
 
 
