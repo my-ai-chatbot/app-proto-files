@@ -4,14 +4,14 @@ import "google/protobuf/empty.proto";
 
 
 message TextChunkGrpcRequest{
-    string LangCode = 1;
-    string Text = 2;
-    string LogFileName = 3;
-    string RequestId = 4;
+    string RequestId = 1;
+    string LangCode = 2;
+    string Text = 3;
 }
 
 message AudioGrpcResponse{
-     bytes FileChunk = 1;
+     string FileName = 1;
+     bytes FileContent = 2;
 }
 
 
