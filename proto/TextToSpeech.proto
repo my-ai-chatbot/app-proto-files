@@ -10,13 +10,13 @@ message TextChunkGrpcRequest{
     string RequestId = 4;
 }
 
-message FileChunkGrpcResponse{
+message AudioGrpcResponse{
      bytes FileChunk = 1;
 }
 
 
 
 service TextToSpeech {
-    rpc Execute(TextChunkGrpcRequest) returns (FileChunkGrpcResponse);
+    rpc Execute(TextChunkGrpcRequest) returns (AudioGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
