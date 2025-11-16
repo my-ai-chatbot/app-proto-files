@@ -17,6 +17,6 @@ message FileChunkGrpcResponse{
 
 
 service TextToSpeech {
-    rpc Execute(stream TextChunkGrpcRequest) returns (stream FileChunkGrpcResponse);
+    rpc Execute(TextChunkGrpcRequest) returns (FileChunkGrpcResponse);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
