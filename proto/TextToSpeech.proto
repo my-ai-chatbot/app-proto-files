@@ -7,11 +7,11 @@ message TextChunkGrpcRequest{
     string RequestId = 1;
     string LangCode = 2;
     string Text = 3;
+    string FileName = 4;
 }
 
 message AudioGrpcResponse{
-     string FileName = 1;
-     bytes FileContent = 2;
+     bytes FileContent = 1;
 }
 
 
