@@ -1,0 +1,17 @@
+syntax = "proto3";
+package webrtc_voice_flows;
+import "google/protobuf/empty.proto";
+
+message WebrtcVoiceFlowsSendAudioToClientRequest {
+    string SessionId = 1;
+    bytes Data = 2;
+}
+
+message WebrtcVoiceFlowsSendAudioToClientResponse {
+    bool Success = 1;
+}
+
+service WebrtcVoiceFlowsGrpcService {
+    rpc SendAudioToClient(WebrtcVoiceFlowsSendAudioToClientRequest) returns (WebrtcVoiceFlowsSendAudioToClientResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
