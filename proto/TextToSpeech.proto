@@ -9,6 +9,7 @@ message TextChunkGrpcRequest{
     string Text = 3;
     string FileName = 4;
     string SessionId = 5;
+    string ConversationId = 6;
 }
 
 message AudioGrpcResponse{
