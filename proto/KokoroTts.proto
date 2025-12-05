@@ -1,0 +1,18 @@
+syntax = "proto3";
+package kokoro_tts;
+import "google/protobuf/empty.proto";
+
+
+message KokoroTtsRequest{
+    string Text = 1;
+    string LanguageCode = 2;
+}
+
+message AudioGrpcResponse{
+     bytes FileContent = 1;
+}
+
+service KokoroTextToSpeech {
+    rpc Tts(KokoroTtsRequest) returns (AudioGrpcResponse);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
