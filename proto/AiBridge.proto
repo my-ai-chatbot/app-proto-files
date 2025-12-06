@@ -8,6 +8,7 @@ message ContextGrpcModel{
     repeated string Headers = 1;
     bool Voice = 2;
     string RequestId = 3;
+    string ConversationId = 4;
 }
 
 message ReasoningGrpcRequest{
