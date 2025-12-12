@@ -4,61 +4,61 @@ import "google/protobuf/empty.proto";
 
 
 message SaveChatHistoryGrpcRequest{
-    string Id = 1;
-    string History = 2;
-    uint64 No = 3;   
+  string Id      = 1;
+  string History = 2;
+  uint64 No      = 3;
 }
 
 message ChatHistoryGrpcModel{
-    string Id = 1;
-    string History = 2;
-    string Summary = 3;
-    uint64 No = 4;
-    uint64 LastSummaryNo = 5;
-    string TechSummary = 6;
+  string Id            = 1;
+  string History       = 2;
+  string Summary       = 3;
+  uint64 No            = 4;
+  uint64 LastSummaryNo = 5;
+  string TechSummary   = 6;
 
 }
 
 message GetChatHistoryGrpcRequest{
-    string Id = 1;
+  string Id = 1;
 }
 
 message GetChatHistoryListGrpcRequest{
-    repeated string Id = 1;
+  repeated string Id = 1;
 }
 
 message DeleteHistoryGrpcRequest{
-    string Id = 1;
+  string id = 1;
 }
 
 message UpdateSummaryGrpcRequest{
-    string Id = 1;
-    string Summary = 2;
-    string TechSummary = 3;
-    uint64 No = 4;
-    
+  string Id          = 1;
+  string Summary     = 2;
+  string TechSummary = 3;
+  uint64 No          = 4;
+
 }
 
 message GetSummaryGrpcRequest{
-    string SessionId = 1;    
+  string SessionId = 1;
 }
 
 message SummaryGrpcModel{
-    string Id = 1;
-    string Summary = 2;
-    string TechSummary = 3;
-    uint64 No = 4;
-    
+  string Id          = 1;
+  string Summary     = 2;
+  string TechSummary = 3;
+  uint64 No          = 4;
+
 }
 
 service AiChatHistory {
-    rpc Save(SaveChatHistoryGrpcRequest) returns (google.protobuf.Empty);
-    rpc UpdateSummary(UpdateSummaryGrpcRequest) returns (google.protobuf.Empty);
-    rpc GetSummary(GetSummaryGrpcRequest) returns (SummaryGrpcModel);
+  rpc Save(SaveChatHistoryGrpcRequest) returns (google.protobuf.Empty);
+  rpc UpdateSummary(UpdateSummaryGrpcRequest) returns (google.protobuf.Empty);
+  rpc GetSummary(GetSummaryGrpcRequest) returns (SummaryGrpcModel);
 
-    rpc Get(GetChatHistoryGrpcRequest) returns (ChatHistoryGrpcModel);
-    rpc GetList(GetChatHistoryListGrpcRequest) returns (stream ChatHistoryGrpcModel);
+  rpc Get(GetChatHistoryGrpcRequest) returns (ChatHistoryGrpcModel);
+  rpc GetList(GetChatHistoryListGrpcRequest) returns (stream ChatHistoryGrpcModel);
 
-    rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
-    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
+  rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }

@@ -7,9 +7,6 @@ message GetWidgetHistoryGrpcRequest{
   uint32 TakeLast = 2;
 }
 
-
-
-
 message WidgetHistoryGrpcModel{
   int64                             TimeStamp            = 1;
   bool                              Human                = 2;
@@ -63,18 +60,23 @@ message SetLabelGrpcRequest{
 }
 
 message UpdateKeyValuesGrpcRequest{
-  string              EventId  = 1;
-  map<string, string> KeyValue = 2;
+  string              event_id  = 1;
+  map<string, string> key_value = 2;
 
 }
 
 message GetByEventIdGrpcRequest{
-  string EventId = 1;
+  string event_id = 1;
 }
 
 message GetByEventIdGrpcResponse{
-  optional WidgetHistoryGrpcModel Model = 1;
+  optional WidgetHistoryGrpcModel model = 1;
 }
+
+message DeleteWidgetHistoryGrpcRequest{
+  string id = 1;
+}
+
 
 service WidgetHistory {
   rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
@@ -86,6 +88,6 @@ service WidgetHistory {
 
   rpc UseOfferActions(stream UseOfferActionsGrpcRequest) returns (google.protobuf.Empty);
 
-  rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
+  rpc Delete(DeleteWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
