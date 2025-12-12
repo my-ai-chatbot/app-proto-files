@@ -6,7 +6,7 @@ message PostTelemetryGrpcRequest {
   int64           telemetry_id = 1;
   int64           started      = 2;
   int64           finished     = 3;
-  string          process_id   = 4;
+  string          process      = 4;
   optional string error        = 5;
 
 }
