@@ -5,78 +5,79 @@ import "google/protobuf/empty.proto";
 
 
 message ContextGrpcModel{
-    repeated string Headers = 1;
-    bool Voice = 2;
-    string RequestId = 3;
-    string ConversationId = 4;
+  repeated string headers              = 1;
+  bool            voice                = 2;
+  string          request_id           = 3;
+  string          conversation_id      = 4;
+  int64           request_telemetry_id = 5;
 }
 
 message ReasoningGrpcRequest{
-    optional ContextGrpcModel Ctx = 1;
-    string Text = 2;
+  optional ContextGrpcModel ctx  = 1;
+  string                    text = 2;
 }
 
 message ReasoningGrpcResponse{
-    string TextToken = 1;
-    repeated AiBridgeToolCallGrpcModel ToolCalls = 2;
-    bool Error = 3;
-    repeated string Labels = 4;
+  string                             text_token = 1;
+  repeated AiBridgeToolCallGrpcModel tool_calls = 2;
+  bool                               error      = 3;
+  repeated string                    labels     = 4;
 }
 
 message AiBridgeToolCallGrpcModel{
-    string FnName = 1;
-    string ResponseData = 2;
-    string RequestData = 3;
+  string fn_name       = 1;
+  string response_data = 2;
+  string request_data  = 3;
 }
 
 message GetDynamicContentGrpcRequest{
-    repeated string Headers = 1;
-    string Text = 2;
-    string DomainAndPath = 3;
-    uint64 Position = 4;
+  repeated string headers         = 1;
+  string          text            = 2;
+  string          domain_and_path = 3;
+  uint64          position        = 4;
 }
 
 message GetDynamicContentGrpcResponse{
-    string Text = 1;
+  string text = 1;
 }
 
 message ExecuteToolCallGrpcRequest{
-    string InventoryType = 1;
-    string FnName = 2;
-    string Params = 3;
+  string inventory_type = 1;
+  string fn_name        = 2;
+  string params         = 3;
 }
 
 message ExecuteToolCallGrpcResponse{
-    string Response = 1;
+  string response = 1;
 }
 
 message DoChatTestGrpcRequest{
-    string TenantId = 1;
-    string LanguageId = 2;
-    string Inventory = 3;
-    repeated string Id = 4;
+  string          tenant_id   = 1;
+  string          language_id = 2;
+  string          inventory   = 3;
+  repeated string id          = 4;
 }
 
 message DoChatTestGrpcResponse{
-    string Error = 1;
+  string error = 1;
 }
 
 
 message GetMpcFunctionGrpcRequest{
-    string InventoryId = 1;
+  string inventory_id = 1;
 }
 
 message GetMpcFunctionsGrpcResponse{
-    repeated string Functions = 1;
+  repeated string functions = 1;
 }
 
 service AiBridge {
-    rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
-    rpc GetDynamicContent(GetDynamicContentGrpcRequest) returns (GetDynamicContentGrpcResponse);
-    rpc ExecuteToolCall(ExecuteToolCallGrpcRequest) returns (ExecuteToolCallGrpcResponse);
+  rpc Reasoning(stream ReasoningGrpcRequest) returns (stream ReasoningGrpcResponse);
+  rpc GetDynamicContent(GetDynamicContentGrpcRequest) returns (GetDynamicContentGrpcResponse);
+  rpc ExecuteToolCall(ExecuteToolCallGrpcRequest) returns (ExecuteToolCallGrpcResponse);
 
-    rpc GetMcpFunctions(GetMpcFunctionGrpcRequest) returns (GetMpcFunctionsGrpcResponse);
+  rpc GetMcpFunctions(GetMpcFunctionGrpcRequest) returns (GetMpcFunctionsGrpcResponse);
 
-    rpc DoChatTest(DoChatTestGrpcRequest) returns (DoChatTestGrpcResponse);
-    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc DoChatTest(DoChatTestGrpcRequest) returns (DoChatTestGrpcResponse);
+  rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
