@@ -3,11 +3,12 @@ package request_telemetry;
 import "google/protobuf/empty.proto";
 
 message PostTelemetryGrpcRequest {
-  uint64 telemetry_id = 1;
-  string process_id   = 2;
-  string result       = 3;
-  uint64 started      = 4;
-  uint64 finished     = 5;
+  int64  telemetry_id = 1;
+  int64  started      = 2;
+  int64  finished     = 3;
+  string process_id   = 4;
+  string result       = 5;
+
 }
 
 
