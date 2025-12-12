@@ -23,7 +23,7 @@ message WidgetHistoryGrpcModel{
   bool                              hidden               = 13;
   repeated string                   labels               = 14;
   map<string, string>               key_value            = 15;
-  uint64                            request_telemetry_id = 16;
+  int64                             request_telemetry_id = 16;
 }
 
 
