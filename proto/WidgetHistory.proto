@@ -3,88 +3,89 @@ package widget_history;
 import "google/protobuf/empty.proto";
 
 message GetWidgetHistoryGrpcRequest{
-    string ChatId = 1;
-    uint32 TakeLast = 2;
+  string ChatId   = 1;
+  uint32 TakeLast = 2;
 }
 
 
 
 
 message WidgetHistoryGrpcModel{
-    int64 TimeStamp = 1;
-    bool Human = 2;
-    bool Sound = 3;
-    string RequestId = 4;
-    string Text = 5;
-    optional string FileReference = 6;
-    repeated ToolCallGrpcModel ToolCallObjects = 7; 
-    optional string Gallery = 8;
-    optional string Brochure = 9;
-    string EventId = 10;
-    repeated UsedOfferActionGrpcModel UsedOfferActions = 11;
-    bool Error = 12;
-    bool Hidden = 13;
-    repeated string Labels = 14;
-    map<string, string> KeyValue = 15;
+  int64                             TimeStamp            = 1;
+  bool                              Human                = 2;
+  bool                              Sound                = 3;
+  string                            RequestId            = 4;
+  string                            Text                 = 5;
+  optional string                   FileReference        = 6;
+  repeated ToolCallGrpcModel        ToolCallObjects      = 7;
+  optional string                   Gallery              = 8;
+  optional string                   Brochure             = 9;
+  string                            EventId              = 10;
+  repeated UsedOfferActionGrpcModel UsedOfferActions     = 11;
+  bool                              Error                = 12;
+  bool                              hidden               = 13;
+  repeated string                   labels               = 14;
+  map<string, string>               key_value            = 15;
+  uint64                            request_telemetry_id = 16;
 }
 
 
 message UsedOfferActionGrpcModel{
-    string OfferId = 1;
-    string ActionId = 2;
+  string OfferId  = 1;
+  string ActionId = 2;
 }
 
 message ToolCallGrpcModel{
-    string FnName = 1;
-    string ResponseData = 2;
-    string RequestData = 3;
+  string FnName       = 1;
+  string ResponseData = 2;
+  string RequestData  = 3;
 }
 
 message SaveWidgetHistoryGrpcRequest{
-    string ChatId = 1;
-    WidgetHistoryGrpcModel Model = 2;
+  string                 ChatId = 1;
+  WidgetHistoryGrpcModel Model  = 2;
 }
 
 message UseOfferActionsGrpcRequest{
-    string EventId = 1;
-    string OfferId = 2;
-    string ActionId = 3;
+  string EventId  = 1;
+  string OfferId  = 2;
+  string ActionId = 3;
 }
 
 message DeleteHistoryGrpcRequest{
-    string ChatId = 1;
+  string ChatId = 1;
 }
 
 message SetLabelGrpcRequest{
-    string EventId = 1;
-    repeated string Labels = 2;
+  string          EventId = 1;
+  repeated string Labels  = 2;
 
 }
 
 message UpdateKeyValuesGrpcRequest{
-    string EventId = 1;
-    map<string, string> KeyValue = 2;
+  string              EventId  = 1;
+  map<string, string> KeyValue = 2;
 
 }
 
 message GetByEventIdGrpcRequest{
-    string EventId = 1;
+  string EventId = 1;
 }
 
 message GetByEventIdGrpcResponse{
-    optional WidgetHistoryGrpcModel Model = 1;
+  optional WidgetHistoryGrpcModel Model = 1;
 }
 
 service WidgetHistory {
-    rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
-    rpc GetByEventId(GetByEventIdGrpcRequest) returns (GetByEventIdGrpcResponse);
+  rpc Get(GetWidgetHistoryGrpcRequest) returns (stream WidgetHistoryGrpcModel);
+  rpc GetByEventId(GetByEventIdGrpcRequest) returns (GetByEventIdGrpcResponse);
 
-    rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
-    rpc SetLabels(SetLabelGrpcRequest) returns  (google.protobuf.Empty);
-    rpc UpdateKeyValues(UpdateKeyValuesGrpcRequest) returns  (google.protobuf.Empty);
+  rpc Save(stream SaveWidgetHistoryGrpcRequest) returns (google.protobuf.Empty);
+  rpc SetLabels(SetLabelGrpcRequest) returns  (google.protobuf.Empty);
+  rpc UpdateKeyValues(UpdateKeyValuesGrpcRequest) returns  (google.protobuf.Empty);
 
-    rpc UseOfferActions(stream UseOfferActionsGrpcRequest) returns (google.protobuf.Empty);
-    
-    rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
-    rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc UseOfferActions(stream UseOfferActionsGrpcRequest) returns (google.protobuf.Empty);
+
+  rpc Delete(DeleteHistoryGrpcRequest) returns (google.protobuf.Empty);
+  rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
