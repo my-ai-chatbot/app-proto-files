@@ -2,7 +2,7 @@ syntax = "proto3";
 package request_telemetry;
 import "google/protobuf/empty.proto";
 
-message PostTelemetryGrpcRequest {
+message TelemetryEventGrpcModel {
   int64           telemetry_id = 1;
   int64           started      = 2;
   int64           finished     = 3;
@@ -16,7 +16,7 @@ message GetTelemetryGrpcRequest{
 }
 
 service RequestTelemetry {
-  rpc PostTelemetry(stream PostTelemetryGrpcRequest) returns (google.protobuf.Empty);
-  rpc Get(GetTelemetryGrpcRequest) returns (stream PostTelemetryGrpcRequest);
+  rpc PostTelemetry(stream TelemetryEventGrpcModel) returns (google.protobuf.Empty);
+  rpc Get(GetTelemetryGrpcRequest) returns (stream TelemetryEventGrpcModel);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
