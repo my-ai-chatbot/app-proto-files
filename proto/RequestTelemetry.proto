@@ -11,8 +11,12 @@ message PostTelemetryGrpcRequest {
 
 }
 
+message GetTelemetryGrpcRequest{
+  int64 telemetry_id = 1;
+}
 
 service RequestTelemetry {
   rpc PostTelemetry(stream PostTelemetryGrpcRequest) returns (google.protobuf.Empty);
+  rpc Get(GetTelemetryGrpcRequest) returns (stream PostTelemetryGrpcRequest);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
 }
